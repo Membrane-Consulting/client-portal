@@ -1,8 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import Modal from 'svelte-simple-modal'
+  import MoreInfoModal from '$lib/components/ui/modal_content/MoreInfoModal.svelte'
 
   let tabItems = [
-		{ label: "Dashboard", value: 1, route: "/dashboard" },
+		{ label: "Sites", value: 1, route: "/dashboard" },
 		{ label: "Invoices", value: 2, route: "/dashboard/invoices" },
 		{ label: "Assets", value: 3, route: "/dashboard/assets" },
     { label: "Contracts", value: 4, route: "/dashboard/contracts"}
@@ -34,6 +36,9 @@
         {/each}
       {/if}
     </ul>
+    <Modal>
+      <MoreInfoModal />
+    </Modal>
   </nav>
   <div id="content-wrap" class={activeTabValue !== 1 ? 'rnd' : ''}>
     <slot></slot>
@@ -41,6 +46,11 @@
 </div>
 
 <style>
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
   ul {
       display: flex;
       flex-wrap: wrap;

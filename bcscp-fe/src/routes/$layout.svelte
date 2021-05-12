@@ -1,9 +1,11 @@
-<script>
+<script lang="ts">
   import supabase from '$lib/db'
   import { session } from '$app/stores'
   import { browser } from '$app/env'
   import Header from '$lib/components/ui/Header.svelte'
   import Footer from '$lib/components/ui/Footer.svelte'
+  import Modal from 'svelte-simple-modal'
+  import SessionErrorModal from '$lib/components/ui/modal_content/SessionErrorModal.svelte'
 
   if(browser){
     $session = supabase.auth.session()
@@ -20,8 +22,15 @@
     <slot></slot>
   </main>
 <Footer />
+<!--<Modal>
+  <SessionErrorModal s={$session}/>
+</Modal>-->
 
 <style>
+  main {
+    padding-left: calc(100vw - 100%);
+  }
+
   :global(:root) {
     --bg: #E0DCD8;
     --light-orange: #DDA788;
@@ -31,6 +40,7 @@
     --light-green: #999E90;
     --dark-green: #4E563E;
     --black: #1F1F1F;
+    --shadow: #1f1f1f21;
   }
 
   :global(body) {

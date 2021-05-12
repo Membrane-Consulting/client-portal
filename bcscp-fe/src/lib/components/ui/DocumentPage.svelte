@@ -1,36 +1,34 @@
 <script lang="ts">
   import { session } from '$app/stores'
   import { client, options, makeUrl } from '$lib/components/auth/SanityClient'
-  import { formatDate } from '$lib/utils'
   import Loading from '$lib/components/ui/Loading.svelte'
+
+  export let type
 
   let data
 
-  const load = async () => {
-    const query = `*[_type=="client" && supa_id=="${$session.user.id}"]{ contracts }`
-    await client.fetch(query)
-      .then(res => {
-        data = res[0]
-        console.log(data)
-      })
+  const load = async (t) => {
+    const query = `*[_type=="client" && supa_id=="${$session.user.id}"]{ ${type} }`
+    let a = await client.fetch(query)
+    data = a[0]
   }
 
-  load();
+  load(type);
 </script>
 
-<h1>Contracts</h1>
-<p>click the link to open the PDF in a new tab where you can download it.</p>
 {#if data}
   <table>
     <tr>
-      <th>Name</th>
-      <th>Date Signed</th>
+      <th>Number</th>
+      <th>Amount Due</th>
+      <th>Paid?</th>
       <th>Open</th>
     </tr>
-    {#each data.contracts as { asset: {_ref}, name, dateSigned }}
+    {#each data as { asset: {_ref}, number, amountDue, outstanding}}
       <tr>
-        <td>{ name }</td>
-        <td>{formatDate(dateSigned)}</td>
+        <td>{ number }</td>
+        <td>${amountDue}</td>
+        <td>{outstanding ? '❌' : '✅' }</td>
         <td><a href={makeUrl(_ref)} target="_blank">click here</a></td> 
       </tr>
     {/each}

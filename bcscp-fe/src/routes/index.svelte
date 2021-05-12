@@ -25,6 +25,7 @@ import SignOutButton from '$lib/components/auth/SignOutButton.svelte'
   <h1>{l[i]}</h1>
   <div id="button-wrap">
     {#if $session}
+      <a href="/dashboard">Dashboard</a>
       <SignOutButton styles={'padding: .8rem 2rem; margin: 2rem 2rem; background-color: var(--dark-green);color: var(--light-blue);'}/>
     {:else}
       <a href="/sign-in">Sign in</a>

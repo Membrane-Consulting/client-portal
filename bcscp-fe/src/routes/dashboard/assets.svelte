@@ -1,1 +1,1 @@
-<h1>assets</h1>
+<h1>Assets</h1>
