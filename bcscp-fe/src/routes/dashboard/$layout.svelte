@@ -36,9 +36,11 @@
         {/each}
       {/if}
     </ul>
+    {#if document}
     <Modal>
       <MoreInfoModal />
     </Modal>
+    {/if}
   </nav>
   <div id="content-wrap" class={activeTabValue !== 1 ? 'rnd' : ''}>
     <slot></slot>
