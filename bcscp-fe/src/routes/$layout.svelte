@@ -50,6 +50,7 @@
 
   :global(h1), :global(h2), :global(h3) {
     margin: .5rem 0;
+    line-height: 1;
   }
 
   :global(a) {

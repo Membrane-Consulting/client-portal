@@ -36,7 +36,7 @@
     {#each data.sites as s}
       <div class="s-card" transition:fade>
         {#if s.screenshot_url}
-          <img src={s.screenshot_url} alt="A Screenshot of the Site" style="margin-bottom: -.5rem;">
+          <img src={s.screenshot_url} alt="A Screenshot of the Site" style="margin-bottom: -.5rem; height: 187.5px;">
         {:else}
           <div style="width: 300px; height: 187.5px; background-color: gray; display: flex; align-items: center; justify-content: center; border-radius: 15px 15px 0 0;">
             <p style="color: white;">No screenshot available</p>

@@ -26,7 +26,7 @@ import SignOutButton from '$lib/components/auth/SignOutButton.svelte'
   <div id="button-wrap">
     {#if $session}
       <a href="/dashboard">Dashboard</a>
-      <SignOutButton styles={'padding: .8rem 2rem; margin: 2rem 2rem; background-color: var(--dark-green);color: var(--light-blue);'}/>
+      <SignOutButton styles={'padding: .8rem 2rem; margin: 2rem 2rem; background-color: var(--dark-green);color: var(--light-blue); border-radius: 15px; box-shadow: 3px 3px 18px var(--shadow);'}/>
     {:else}
       <a href="/sign-in">Sign in</a>
       <a href="/sign-up">Sign up</a>
@@ -61,5 +61,11 @@ import SignOutButton from '$lib/components/auth/SignOutButton.svelte'
     margin: 2rem 2rem;
     background-color: var(--dark-green);
     color: var(--light-blue);
+    border-radius: 15px;
+    box-shadow: 3px 3px 18px var(--shadow);
+  }
+  
+  #button-wrap a:hover {
+    transform: scale(1.1);
   }
 </style>
