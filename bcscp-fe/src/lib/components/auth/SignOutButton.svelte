@@ -13,3 +13,11 @@
 </script>
 
 <a style={styles} href="/" on:click={signOut}>Sign Out</a>
+
+<style>
+  a {
+    background: var(--white);
+    padding: .3rem .5rem;
+    border-radius: 0.35rem;
+  }
+</style>

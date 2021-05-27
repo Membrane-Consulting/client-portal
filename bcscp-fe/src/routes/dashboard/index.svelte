@@ -82,7 +82,7 @@
   .s-card {
     width: 300px;
     height: 325px;
-    background-color: #999e908e;
+    background-color: #96C5CE8F;
     border-radius: 15px;
     box-shadow: 3px 3px 15px var(--shadow);
   }

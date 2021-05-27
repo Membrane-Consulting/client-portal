@@ -38,29 +38,3 @@
 {:else}
   <Loading />
 {/if}
-
-<style>
-  table {
-    min-width: 50%;
-    text-align: left;
-  }
-
-  table, th, td {
-    border: 1px solid var(--black);
-    border-collapse: collapse;
-  }
-
-  th, td {
-    padding:.3rem;
-    width: max-content;
-  }
-
-  th {
-    background-color: var(--dark-green);
-    color: white;
-  }
-
-  tr:nth-child(odd) {
-    background-color: #999E9063;
-  }
-</style>

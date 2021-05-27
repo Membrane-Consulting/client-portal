@@ -1,49 +1,73 @@
 <script>
-  import { session } from '$app/stores'
-  import SignOutButton from '$lib/components/auth/SignOutButton.svelte'
+	import { page, session } from '$app/stores';
+	import SignOutButton from '$lib/components/auth/SignOutButton.svelte';
+
+	$: ({ path } = $page);
 </script>
 
 <header>
-  <div>
-    <h1>Black Cat Studio</h1>
-    <h2>Client Portal</h2>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      {#if $session}
-        <li><a href="/dashboard">Dashboard</a></li>
-      {/if}
-      {#if !$session}
-        <li><a href="/sign-in">Sign in</a></li>
-        <li><a href="/sign-up">Sign up</a></li>
-      {/if}
-      {#if $session}
-        <li><SignOutButton/></li>
-      {/if}
-    </ul>
-  </nav>
+	<div>
+		<h1>Black Cat Studio</h1>
+		<h2>Client Portal</h2>
+	</div>
+	<nav>
+		<ul>
+			{#if $session && path === '/'}
+				<li><a href="/dashboard">Dashboard</a></li>
+			{/if}
+			{#if $session}
+				<li><SignOutButton /></li>
+			{/if}
+		</ul>
+	</nav>
 </header>
 
 <style>
-  header {
-    padding: .8rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+	header {
+		background: var(--black);
+		color: var(--white);
+		z-index: -2;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1.5rem;
+		padding-bottom: 300px;
+		margin: -8px -8px 0 -8px;
+	}
 
-  ul {
-    display: flex;
-    list-style: none;
-  }
+	nav {
+		z-index: 0;
+	}
 
-  li {
-    margin: .4rem .6rem;
-  }
+	ul {
+		display: flex;
+		list-style: none;
+		padding: 0;
+	}
 
-  :global(a) {
-    text-decoration: none;
-    color: var(--black);
-  }
+	li {
+		margin: 0.4rem 0.6rem;
+	}
+
+	:global(a) {
+		text-decoration: none;
+		color: var(--black);
+	}
+
+	a {
+		color: var(--white);
+	}
+
+	@media screen and (max-width: 410px) {
+		header {
+			flex-direction: column;
+		}
+		header > div {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
 </style>
+

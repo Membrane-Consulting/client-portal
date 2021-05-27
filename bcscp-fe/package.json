@@ -24,9 +24,13 @@
   },
   "type": "module",
   "dependencies": {
+    "@beyonk/svelte-notifications": "^3.1.0",
     "@sanity/client": "^2.8.0",
+    "@sanity/image-url": "^0.140.22",
     "netlify": "^6.1.27",
+    "svelte-copy-to-clipboard": "^0.2.5",
     "svelte-loading-spinners": "^0.1.4",
+    "svelte-notifications": "^0.9.9",
     "svelte-simple-modal": "^0.10.1"
   }
 }

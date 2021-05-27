@@ -40,27 +40,33 @@
 {/if}
 
 <style>
-  table {
-    min-width: 50%;
+  :global(table) {
+    width: 100%;
     text-align: left;
   }
 
-  table, th, td {
-    border: 1px solid var(--black);
+  :global(table, th, td) {
     border-collapse: collapse;
   }
 
-  th, td {
+  :global(th, td) {
     padding:.3rem;
     width: max-content;
   }
 
-  th {
-    background-color: var(--dark-green);
-    color: white;
+  :global(td) {
+    border-left: 1px solid #999E9063;
   }
 
-  tr:nth-child(odd) {
-    background-color: #999E9063;
+  :global(td:first-child) {
+    border-left: none;
+  }
+
+  :global(th) {
+    background-color: #96C5CE;
+  }
+
+  :global(tr:nth-child(odd)) {
+    background-color: #e6ebec;
   }
 </style>
