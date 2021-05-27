@@ -9,6 +9,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'brandAssets',
+      title: 'Brand Assets',
+      type: 'brand'
+    },
+    {
       name: 'ownerName',
       title: 'Owner Name',
       type: 'string',

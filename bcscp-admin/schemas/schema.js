@@ -5,9 +5,16 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import client from './client'
-import invoice from './invoice'
-import contract from './contract'
-import digitalAsset from './digitalAsset'
+import invoice from './client_parts/invoice'
+import contract from './client_parts/contract'
+import digitalAsset from './client_parts/digitalAsset'
+
+import brand from './client_parts/brand'
+import color from './client_parts/brand_parts/color'
+import font from './client_parts/brand_parts/font'
+import fontVariation from './client_parts/brand_parts/fontVariation'
+import logo from './client_parts/brand_parts/logo'
+import singleLogo from './client_parts/brand_parts/singleLogo'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -19,6 +26,12 @@ export default createSchema({
     client,
     invoice,
     contract,
-    digitalAsset
+    digitalAsset,
+    brand,
+    color,
+    font,
+    fontVariation,
+    logo,
+    singleLogo
   ]),
 })
